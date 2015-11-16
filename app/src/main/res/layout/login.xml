@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bckg"
+    android:layout_gravity="center"
+    android:gravity="center"
+
+    android:orientation="vertical">
+
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center"
+
+     android:layout_marginLeft="20dp"
+     android:layout_marginRight="20dp"     android:orientation="horizontal"
+     >
+
+
+    <EditText
+        android:drawableStart="@drawable/contactsy"
+        android:drawableLeft="@drawable/contactsy"
+        android:drawablePadding="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Log In ID"
+        android:id="@+id/roll_login"
+         />
+</LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"     android:orientation="horizontal">
+
+        <EditText
+            android:drawableStart="@drawable/lock"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/password_login"
+            android:hint="Password" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/myPrimaryColor"
+        android:textColor="#FFFFFF"
+        android:id="@+id/login_btn"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Registered? Sign Up Here"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+        android:textColor="@color/myPrimaryColor"
+        android:id="@+id/tv_login"
+        android:layout_gravity="bottom|center"
+
+        />
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bckg"
+
+    android:orientation="vertical"
+    >
+
+
+    <include
+        android:id="@+id/actionbar_notification"
+        layout="@layout/toolbarnotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+
+
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            float:fletPadding="5dp"
+            android:id = "@+id/add_subject_approval"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            float:fletTextAppearance="@style/floatlabelededittext">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/calendar"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textColorHint="#000000"
+                android:layout_below="@+id/date_pick"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:drawableStart="@drawable/calendar"
+                android:drawablePadding="15dp"
+                android:hint="Notification Details"
+                android:lines = "3"
+                android:singleLine="false"
+                android:id="@+id/add_notify_details"/>
+
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/spinner1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+
+            android:layout_marginTop="10dp"
+            android:background="@color/myPrimaryColor"
+            android:theme="@style/SpinnerAsEditText"
+
+            />
+
+        <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="SELECT DATE"
+        android:id="@+id/date_pick"
+        android:background="@color/myPrimaryColor"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_below="@+id/year_register"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="SELECT TIME"
+        android:id="@+id/time_pick"
+        android:background="@color/myPrimaryColor"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_below="@+id/year_register"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:id="@+id/submit"
+        android:background="@color/myPrimaryColor"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_below="@+id/year_register"
+        android:layout_marginTop="20dp"
+        />
+
+
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/bckg">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@drawable/bckg"
+   >
+
+
+    <include
+        android:id="@+id/actionbar_approval"
+        layout="@layout/toolbarnotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPadding="5dp"
+        android:id = "@+id/add_subject_approval"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        float:fletTextAppearance="@style/floatlabelededittext">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calendar"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textColorHint="#000000"
+            android:layout_below="@+id/date_pick"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:drawableStart="@drawable/calendar"
+            android:drawablePadding="15dp"
+            android:hint="Subject"
+            android:lines = "3"
+            android:singleLine="false"
+            android:id="@+id/add_subject_approval_edt"/>
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPadding="5dp"
+        android:id = "@+id/add_details_approval"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        float:fletTextAppearance="@style/floatlabelededittext">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calendar"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textColorHint="#000000"
+            android:layout_below="@+id/date_pick"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:drawableStart="@drawable/calendar"
+            android:drawablePadding="15dp"
+            android:hint="Details"
+            android:lines = "3"
+            android:singleLine="false"
+            android:id="@+id/add_details_approval_edt"/>
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPadding="5dp"
+        android:id = "@+id/add_assigned_to_approval"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        float:fletTextAppearance="@style/floatlabelededittext">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calendar"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textColorHint="#000000"
+            android:layout_below="@+id/date_pick"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:drawableStart="@drawable/calendar"
+            android:drawablePadding="15dp"
+            android:hint="Assigned to"
+            android:lines = "3"
+            android:singleLine="false"
+            android:id="@+id/add_assigned_to_approval_edt"/>
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        float:fletPadding="5dp"
+        android:id = "@+id/add_steps_approval"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        float:fletTextAppearance="@style/floatlabelededittext">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calendar"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textColorHint="#000000"
+            android:layout_below="@+id/date_pick"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:drawableStart="@drawable/calendar"
+            android:drawablePadding="15dp"
+            android:hint="Number of Steps"
+            android:lines = "3"
+            android:singleLine="false"
+            android:inputType="number"
+            android:id="@+id/add_steps_approval_edt"/>
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="50dp"
+         android:text = "NEXT"
+         android:id ="@+id/next"
+         android:textStyle="bold"
+         android:background="@color/myPrimaryColor"
+         android:textColor="#FFFFFF"
+
+        />
+
+
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

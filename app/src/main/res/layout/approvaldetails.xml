@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3"
+    android:gravity="center"
+    android:orientation="vertical"
+  >
+
+    <include android:id="@+id/appr_details_toolbar" layout="@layout/toolbarprofile"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation = "vertical"
+
+        android:id = "@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        >
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+
+            android:background="#d3d3d3" />
+
+        <LinearLayout
+            android:orientation = "horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_today_black_18dp"
+                 />
+
+            <LinearLayout
+                android:orientation = "vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                >
+                <TextView
+                    android:id="@+id/appr_detail_subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Get permission regarding SAC"
+                    android:textStyle="normal"
+                    android:textSize="13sp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/appr_detail_assigned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Assigned to: Divya Vikash"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/myPrimaryColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:src= "@drawable/ic_warning_black_18dp"/>
+                <TextView
+                    android:id="@+id/appr_detail_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22 March 2015"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="normal"
+                    android:textColor="#ffff131a"
+                    android:textSize="13sp"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d3d3d3" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff">
+
+        <ListView
+            android:id="@+id/listview_steps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

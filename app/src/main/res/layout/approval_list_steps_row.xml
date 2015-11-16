@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="vertical"
+    android:padding="6dip" >
+
+    <LinearLayout
+
+        android:orientation = "horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+
+        android:layout_height= "wrap_content"
+        >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:button="@drawable/selectcheckbox"/>
+        <LinearLayout
+
+            android:orientation = "vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+
+            android:layout_height= "wrap_content"
+            >
+            <TextView
+                android:id="@+id/list_desc_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do Step 1"
+
+                android:textColor="#000000"
+                android:typeface="normal"
+                android:textSize="15sp"
+                />
+
+            <LinearLayout
+
+                android:orientation = "vertical"
+
+                android:layout_width="match_parent"
+
+                android:layout_height= "wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/list_desc_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="At Room No:103"
+                    android:textSize="12sp"
+                    android:typeface="normal" />
+
+                <TextView
+                    android:id="@+id/list_desc_priority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="High Priority"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:typeface="normal" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:background="#d3d3d3" />
+</LinearLayout> 
