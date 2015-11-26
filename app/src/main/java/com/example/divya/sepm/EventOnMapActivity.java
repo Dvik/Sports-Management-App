@@ -8,9 +8,13 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.divya.helpers.AppConfig;
+import com.example.divya.models.Event;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -24,26 +28,38 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 public class EventOnMapActivity extends FragmentActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private Toolbar mToolbar;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private LocationRequest mLocationRequest;
     private GoogleApiClient mGoogleApiClient;
     public static final String TAG = FragmentActivity.class.getSimpleName();
     private Marker myMarker;
+    List<Event> eventsListMap;
 
-    TextView name_tv;
+    TextView tt1,tt2,tt3,tt4,tt5;
+    TextView personAge;
+    ImageView img;
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_on_map);
+        mToolbar = (Toolbar) findViewById(R.id.appr_details_toolbar);
+        mToolbar.setTitle("Events");
+       tt1 = (TextView) findViewById(R.id.event_subject_tv);
+       tt2 = (TextView) findViewById(R.id.event_date);
 
-        name_tv = (TextView) findViewById(R.id.event_map_name_tv);
+       tt3 = (TextView) findViewById(R.id.event_time);
+       tt4 = (TextView) findViewById(R.id.event_place);
+
+       img = (ImageView) findViewById(R.id.event_image);
 
         setUpMapIfNeeded();
 
@@ -113,12 +129,16 @@ public class EventOnMapActivity extends FragmentActivity implements
      */
     private void setUpMap() {
 
+        int i;
+        eventsListMap = AppConfig.listOfEvents;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(26.933025, 75.923163), 16));
-//26.930265, 75.920690 football
-        Marker marker1 = mMap.addMarker(new MarkerOptions().position(new LatLng( 26.933025, 75.923163)).title("It's fucking SAC"));
 
-        Marker marker2 = mMap.addMarker(new MarkerOptions().position(new LatLng( 26.930457, 75.919955)).title("It's fucking cricket field"));
+        for(i=0; i<eventsListMap.size();i++) {
+            Marker marker1 = mMap.addMarker(new MarkerOptions().position(
+                    new LatLng(Double.parseDouble(eventsListMap.get(i).lat), Double.parseDouble(eventsListMap.get(i).lng)))
+                    .title(eventsListMap.get(i).name));
+        }
 
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -129,17 +149,49 @@ public class EventOnMapActivity extends FragmentActivity implements
             }
         });
 
+
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
         {
 
             @Override
             public boolean onMarkerClick(Marker arg0) {
-                if(arg0.getTitle().equals("It's fucking SAC")) // if marker source is clicked
-                    name_tv.setText("It's fucking SAC");
-                if(arg0.getTitle().equals("It's fucking cricket field")) // if marker source is clicked
-                    name_tv.setText("It's fucking cricket field");
-                if(arg0.getTitle().equals("I am here!")) // if marker source is clicked
-                    name_tv.setText("I am here!");
+                int j;
+                for(j=0; j<eventsListMap.size();j++) {
+                    Event events = eventsListMap.get(j);
+
+                    if (arg0.getTitle().equals(events.name)) {
+
+                        tt1.setText((String) events.name);
+                        tt2.setText((String) events.date);
+                        tt3.setText((String) events.start_time+"   "+(String) events.end_time);
+                        tt2.setText((String) events.lat+"   "+(String) events.lng);
+
+                        String sport =  (String) events.sport;
+
+                        if(sport.equalsIgnoreCase("Football")) {
+                            img.setImageResource(R.drawable.football);
+                        }
+
+                        if(sport.equalsIgnoreCase("Cricket")) {
+                           img.setImageResource(R.drawable.basketball);
+                        }
+
+                        if(sport.equalsIgnoreCase("basketball")) {
+                           img.setImageResource(R.drawable.iconspo);
+                        }
+
+                        if(sport.equalsIgnoreCase("table tennis")) {
+                            img.setImageResource(R.drawable.tabletennis);
+                        }
+
+
+                        if(sport.equalsIgnoreCase("boxing")) {
+                            img.setImageResource(R.drawable.boxing);
+                        }
+
+
+                    }
+                }
                 return true;
             }
 

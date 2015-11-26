@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -16,6 +15,10 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+
 
     <application
         android:name="com.example.divya.helpers.AppController"
@@ -57,8 +60,9 @@
             android:label="@string/title_activity_notify_details" >
         </activity>
 
-        <receiver android:name="com.example.divya.helpers.AlarmReceiver" android:process=":remote">
-
+        <receiver
+            android:name="com.example.divya.helpers.AlarmReceiver"
+            android:process=":remote" >
         </receiver>
 
         <activity
@@ -71,6 +75,19 @@
         </activity>
         <activity
             android:name=".ApprovalDetails"
+            android:label="Details" >
+        </activity>
+        <activity
+            android:name=".EventDetails"
+            android:label="Details" >
+        </activity>
+        <activity
+            android:name=".AddEvent"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:label="Details" >
+        </activity>
+        <activity
+            android:name=".AddInventory"
             android:label="Details" >
         </activity>
 
@@ -86,13 +103,18 @@
             android:label="@string/title_activity_event_on_map" >
         </activity>
 
-       <!-- <service android:name="com.example.divya.helpers.MyAlarmService"
+        <!--
+        <service android:name="com.example.divya.helpers.MyAlarmService"
             android:enabled="true" />
 
         <receiver android:name="com.example.divya.helpers.MyReceiver"/>
 
         <receiver android:process=":remote" android:name=".Alarm"></receiver>
--->
+        -->
+        <activity
+            android:name=".AddEventPlace"
+            android:label="@string/title_activity_add_event_place" >
+        </activity>
     </application>
 
 </manifest>

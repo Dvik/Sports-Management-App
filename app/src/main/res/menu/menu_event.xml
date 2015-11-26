@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_map"
+
+        android:title="View on Map"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title = "Filter"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menuSortNewest"
+                android:title="Sort by Newest" />
+            <item
+                android:id="@+id/menuSortOldest"
+                android:title="Sort by rating" />
+            <item
+                android:id="@+id/menuSortSignificance"
+                android:title="Sort by significance" />
+        </menu>
+    </item>
+
+</menu>
+
+

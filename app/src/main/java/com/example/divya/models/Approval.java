@@ -13,15 +13,16 @@ public class Approval implements Parcelable {
     public String subject;
     public String assigned;
     public String deadline;
-    public String sid;
+    public String nsteps;
 
-    public Approval(String aid,String subject,String assigned,String deadline,String sid)
+
+    public Approval(String aid,String subject,String assigned,String deadline,String nsteps)
     {
         this.aid=aid;
         this.subject=subject;
         this.assigned=assigned;
         this.deadline=deadline;
-        this.aid=aid;
+        this.nsteps=nsteps;
     }
     @Override
     public int describeContents() {
@@ -34,7 +35,7 @@ public class Approval implements Parcelable {
         parcel.writeString(subject);
         parcel.writeString(assigned);
         parcel.writeString(deadline);
-        parcel.writeString(sid);
+        parcel.writeString(nsteps);
 
     }
     private Approval(Parcel in){
@@ -42,7 +43,7 @@ public class Approval implements Parcelable {
         this.subject = in.readString();
         this.assigned = in.readString();
         this.deadline = in.readString();
-        this.sid = in.readString();
+        this.nsteps = in.readString();
 
     }
 

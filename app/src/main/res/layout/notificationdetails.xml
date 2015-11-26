@@ -22,8 +22,9 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:id = "@+id/prof_img"
-            android:layout_alignParentTop="true"
-           />
+            android:src = "@drawable/football"
+            android:layout_centerHorizontal="true"
+/>
         <TextView
             android:id = "@+id/notf_detail_sport_tv"
             android:layout_width="wrap_content"
@@ -120,24 +121,13 @@
     </RelativeLayout>
 
 
-    <CheckBox
-        android:id = "@+id/prof_veg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:text = "Remind me"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        android:layout_below="@+id/prof_layout5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
-
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Remind Me"
         android:id="@+id/button_demo"
-        android:layout_below="@+id/prof_veg"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/prof_layout5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
 </RelativeLayout>

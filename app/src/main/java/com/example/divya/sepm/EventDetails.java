@@ -16,11 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.divya.helpers.CustomNotificationAdapter;
-import com.example.divya.helpers.CustomStepsAdapter;
+import com.example.divya.helpers.CustomFixturesAdapter;
 import com.example.divya.helpers.JSONParser;
-import com.example.divya.models.Approval;
+import com.example.divya.models.Event;
+import com.example.divya.models.Fixtures;
 import com.example.divya.models.Notify;
-import com.example.divya.models.Steps;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -35,61 +35,69 @@ import java.util.List;
 /**
  * Created by Divya on 11/9/2015.
  */
-public class ApprovalDetails extends ActionBarActivity {
+public class EventDetails extends ActionBarActivity {
 
     private Toolbar mToolbar;
     ListView lv;
-    Integer selectedAid;
+    Integer selectedEid;
     ProgressDialog pDialog;
-    JSONArray steps;
-    CustomStepsAdapter stepsAdapter;
+    JSONArray fixtures;
+    CustomFixturesAdapter fixturesAdapter;
 
 
-    ArrayList<Steps> stepslist;
+    ArrayList<Fixtures> fixtureslist;
     JSONParser jParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.approvaldetails);
+        setContentView(R.layout.eventdetails);
 
 
-        mToolbar = (Toolbar) findViewById(R.id.appr_details_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
         setSupportActionBar(mToolbar);
-        setTitle("Approval Details");
-        lv = (ListView) findViewById(R.id.listview_steps);
-        selectedAid = new Integer('0');
+        setTitle("Event Details");
+        lv = (ListView) findViewById(R.id.listview_fixtures);
+        selectedEid = new Integer('0');
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        stepslist = new ArrayList<Steps>();
+        fixtureslist = new ArrayList<Fixtures>();
 
         jParser = new JSONParser();
         Bundle b = getIntent().getExtras();
 
-        Approval n = b.getParcelable("getApprovalDetails");
+        Event n = b.getParcelable("getEventDetails");
 
-        TextView subject_tv = (TextView) findViewById(R.id.appr_detail_subject);
-        TextView assigned_tv = (TextView) findViewById(R.id.appr_detail_assigned);
-        TextView date_tv = (TextView) findViewById(R.id.appr_detail_date);
+        TextView name_tv = (TextView) findViewById(R.id.event_detail_name);
+        TextView descr_tv = (TextView) findViewById(R.id.event_detail_descr);
+        TextView status_tv = (TextView) findViewById(R.id.event_detail_status);
+        TextView date_tv = (TextView) findViewById(R.id.event_detail_date);
 
-        subject_tv.setText(n.subject);
-        assigned_tv.setText("Assigned to: "+n.assigned);
-        date_tv.setText(n.deadline);
-        selectedAid = Integer.parseInt(n.aid);
 
-        new LoadAllSteps().execute();
+        name_tv.setText(n.name);
+        descr_tv.setText(n.description);
+        status_tv.setText(n.status);
+        date_tv.setText(n.date);
+
+
+       selectedEid = Integer.parseInt(n.eid);
+
+
+        Log.d("ddd",n.name+" "+n.description);
+
+        new LoadAllFixtures().execute();
 
     }
 
 
 
-    class LoadAllSteps extends AsyncTask<String, String, String> {
+    class LoadAllFixtures extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(ApprovalDetails.this);
-            pDialog.setMessage("Loading Approval Description");
+            pDialog = new ProgressDialog(EventDetails.this);
+            pDialog.setMessage("Loading Event Description");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -101,11 +109,11 @@ public class ApprovalDetails extends ActionBarActivity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
 
 
-            params.add(new BasicNameValuePair("step"," "));
+            params.add(new BasicNameValuePair("fixture"," "));
 
-            params.add(new BasicNameValuePair("aid",String.valueOf(selectedAid)));
+            params.add(new BasicNameValuePair("eid",String.valueOf(selectedEid)));
 
-            JSONObject json = jParser.makeHttpRequest("http://divyav.esy.es/getAllSteps.php", "POST", params);
+            JSONObject json = jParser.makeHttpRequest("http://divyav.esy.es/getFixtureOfAnEvent.php", "POST", params);
 
             Log.d("sss", json.toString());
 
@@ -115,19 +123,22 @@ public class ApprovalDetails extends ActionBarActivity {
 
                 if (success == 1) {
 
-                    steps = json.getJSONArray("steps");
+                    fixtures = json.getJSONArray("fixtures");
 
-                    for (int i = 0; i < steps.length(); i++)
+                    for (int i = 0; i < fixtures.length(); i++)
                     {
-                        JSONObject c = steps.getJSONObject(i);
+                        JSONObject c = fixtures.getJSONObject(i);
 
-                        Integer aid = c.getInt("aid");
-                        Integer sid = c.getInt("sid");
-                        String priority = c.getString("priority");
-                        String place = c.getString("place");
-                        String nsteps = c.getString("nsteps");
+                        Integer fid = c.getInt("fid");
+                        Integer eid = c.getInt("eid");
+                        String team1 = c.getString("team1");
+                        String team2 = c.getString("team2");
+                        String date = c.getString("date");
+                        String time = c.getString("time");
+                        String status = c.getString("status");
+                        String winner = c.getString("winner");
 
-                        stepslist.add(new Steps(String.valueOf(aid),String.valueOf(sid),priority,place,nsteps));
+                        fixtureslist.add(new Fixtures(String.valueOf(fid),String.valueOf(eid),team1,team2,date,time,status,winner));
                         //    db.addNotification(String.valueOf(nid),sport,details,date,time,true);
 
                     }
@@ -155,9 +166,9 @@ public class ApprovalDetails extends ActionBarActivity {
 
     public void workOnListView()
     {
-        stepsAdapter = new CustomStepsAdapter(ApprovalDetails.this, R.layout.approval_list_steps_row, stepslist );
+        fixturesAdapter = new CustomFixturesAdapter(EventDetails.this, R.layout.event_list_fixture_row, fixtureslist );
 
-        lv.setAdapter(stepsAdapter);
+        lv.setAdapter(fixturesAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

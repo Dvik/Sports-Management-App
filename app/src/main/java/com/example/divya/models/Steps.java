@@ -8,13 +8,16 @@ public class Steps {
     public String sid;
     public String priority;
     public String place;
+    public String nsteps;
 
 
-    public Steps(String aid,String sid, String priority,String place)
+    public Steps(String aid,String sid, String priority,String place,String nsteps)
     {
         this.aid= aid;
         this.sid=sid;
         this.priority=priority;
         this.place=place;
+        this.nsteps=nsteps;
+
     }
 }

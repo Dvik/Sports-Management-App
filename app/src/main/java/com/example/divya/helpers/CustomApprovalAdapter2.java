@@ -1,12 +1,16 @@
 package com.example.divya.helpers;
 
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.example.divya.models.Approval;
 import com.example.divya.sepm.R;
 
@@ -20,6 +24,7 @@ public class CustomApprovalAdapter2 extends RecyclerView.Adapter<CustomApprovalA
 
     List<Approval> approvals;
 
+
     public CustomApprovalAdapter2(List<Approval> approvals)
     {
 
@@ -30,6 +35,7 @@ public class CustomApprovalAdapter2 extends RecyclerView.Adapter<CustomApprovalA
         CardView cv;
         TextView tt1,tt2,tt3,tt4,tt5;
         TextView personAge;
+        ImageView img;
 
         ApprovalViewHolder(View itemView) {
             super(itemView);
@@ -41,7 +47,7 @@ public class CustomApprovalAdapter2 extends RecyclerView.Adapter<CustomApprovalA
             tt3 = (TextView) itemView.findViewById(R.id.approval_day_tv);
             tt4 = (TextView) itemView.findViewById(R.id.approval_month_tv);
 
-
+            img = (ImageView) itemView.findViewById(R.id.approval_image);
 
         }
     }
@@ -65,6 +71,25 @@ public class CustomApprovalAdapter2 extends RecyclerView.Adapter<CustomApprovalA
         String mon = odate.substring(3,5);
         Integer m = Integer.parseInt(mon);
         appViewHolder.tt4.setText(months[m-1]);
+
+        Integer n = Integer.parseInt(approvals.get(position).nsteps);
+
+
+        ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
+        int color1 = generator.getRandomColor();
+
+        TextDrawable.IBuilder builder = TextDrawable.builder()
+                .beginConfig()
+                .withBorder(4)
+                .endConfig()
+                .round();
+
+        String value = String.valueOf(approvals.get(position).subject.charAt(0));
+
+        TextDrawable ic1 = builder.build(value, color1);
+
+        appViewHolder.img.setImageDrawable(ic1);
+
 
     }
 

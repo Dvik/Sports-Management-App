@@ -21,85 +21,78 @@
 
          <android.support.v7.widget.CardView
              android:orientation="horizontal" android:layout_width="match_parent"
-
              android:layout_margin="5dp"
              android:background="#FFFFFF"
              card_view:cardCornerRadius="2dp"
              android:layout_height="wrap_content"
              >
+             <ScrollView
+                 android:layout_height="match_parent"
+                 android:layout_width="match_parent"
+                 >
+
              <LinearLayout
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:orientation="horizontal"
                  android:weightSum="6.5"
                  android:background="#ffffff">
-                 <LinearLayout
-                     android:layout_width="0dp"
-                     android:layout_height="fill_parent"
-                     android:layout_gravity="center_vertical"
-                     android:layout_weight="1"
-                     android:orientation="vertical"
-                     android:paddingBottom="10dp"
-                     android:paddingTop="10dp"
-                     android:weightSum="1" >
-                 </LinearLayout>
+
+
+                 <ImageView
+                     android:id = "@+id/event_image"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:padding="10dp"
+                     android:src= "@drawable/rugby"/>
+
                  <LinearLayout
                      android:layout_width="0dp"
                      android:layout_weight="4"
                      android:layout_height="wrap_content"
+                     android:layout_marginLeft="5dp"
                      android:orientation="vertical">
 
                      <TextView
-                         android:id="@+id/event_map_name_tv"
+                         android:id="@+id/event_subject_tv"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:layout_marginTop="10dp"
-                         android:text="For SAC permission due to student activity"
+                         android:text="LNMIIT Premier League"
                          android:textColor="#ff444444" />
 
+
                      <TextView
-                         android:id="@+id/approval_assigned_tv"
+                         android:id="@+id/event_date"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="5dp"
+                         android:text="24-05-2015"
+                         android:textColor="@color/myPrimaryColor" />
+
+                     <TextView
+                         android:id="@+id/event_time"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="04:30"
+                         android:textColor="@color/myPrimaryColor" />
+
+                     <TextView
+                         android:id="@+id/event_place"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:layout_marginBottom="10dp"
-                         android:layout_marginTop="10dp"
-                         android:text="Assigned to: Divya Vikash"
-                         android:textColor="@android:color/darker_gray" />
+                         android:layout_marginTop="2dp"
+                         android:text="SAC Area"
+                         android:textColor="#ff444444" />
 
                  </LinearLayout>
 
-                 <LinearLayout
-                     android:layout_width="0dp"
-                     android:layout_height="wrap_content"
-                     android:layout_gravity="center_vertical"
-                     android:layout_weight="1.5"
-                     android:orientation="vertical"
-                     android:weightSum="5" >
-
-                     <TextView
-                         android:id="@+id/approval_day_tv"
-                         android:layout_width="match_parent"
-                         android:layout_height="0dp"
-                         android:layout_weight="4"
-                         android:gravity="center_horizontal"
-                         android:text="22"
-                         android:textColor="@color/myPrimaryColor"
-                         android:textSize="40sp" />
-
-                     <TextView
-                         android:id="@+id/approval_month_tv"
-                         android:layout_height="0dp"
-                         android:layout_weight="1"
-                         android:layout_width="match_parent"
-                         android:text="March"
-                         android:textSize="15dp"
-                         android:layout_marginTop="3dp"
-                         android:textColor="@color/myPrimaryColor"
-                         android:gravity="center_horizontal"/>
-                 </LinearLayout>
              </LinearLayout>
-
+             </ScrollView>
          </android.support.v7.widget.CardView>
+
 
      </LinearLayout>
 

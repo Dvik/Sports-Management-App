@@ -7,13 +7,12 @@
     android:background="#FFFFFF"
     >
 
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:cacheColorHint="#00000000"
-        android:transcriptMode="alwaysScroll"
 
-        android:id="@+id/listView_event" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_event"
+        />
 
 
     <android.support.design.widget.FloatingActionButton
@@ -30,5 +29,6 @@
         app:elevation="6dp"
         app:borderWidth="0dp"
         app:pressedTranslationZ="12dp"/>
+
 
 </RelativeLayout>

@@ -19,6 +19,7 @@ import com.example.divya.helpers.CustomApprovalAdapter2;
 import com.example.divya.helpers.CustomNotificationAdapter;
 import com.example.divya.helpers.JSONParser;
 import com.example.divya.helpers.RecyclerItemClickListener;
+import com.example.divya.helpers.SQLiteHandler;
 import com.example.divya.models.Approval;
 import com.example.divya.models.Notify;
 
@@ -28,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -39,6 +41,7 @@ public class ApprovalFragment extends Fragment {
     CustomApprovalAdapter2 adapter;
     RecyclerView rv;
     JSONParser jParser;
+    SQLiteHandler db;
     ProgressDialog pDialog;
     ArrayList<Approval> approvalslist;
     public ApprovalFragment() {
@@ -51,7 +54,7 @@ public class ApprovalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.approval, container, false);
 
 
-
+        db = new SQLiteHandler(getActivity().getApplicationContext());
         rv = (RecyclerView)rootView.findViewById(R.id.rv_approval);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -63,14 +66,19 @@ public class ApprovalFragment extends Fragment {
 
 
         fab1 = (FloatingActionButton) rootView.findViewById(R.id.fab_approval);
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), AddApproval.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
 
+        HashMap<String,String> mp = db.getUserDetails();
+        if(!mp.get("roll").equals("y13uc094"))
+            fab1.setVisibility(View.INVISIBLE);
+        else {
+            fab1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(getActivity(), AddApproval.class);
+                    getActivity().startActivity(myIntent);
+                }
+            });
+        }
         new LoadAllApprovals().execute();
 
         rv.addOnItemTouchListener(

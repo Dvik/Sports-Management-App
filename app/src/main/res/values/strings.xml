@@ -8,4 +8,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_approval2">"Add Approval "</string>
     <string name="title_activity_event_on_map">Events</string>
+    <string name="title_activity_add_event_place">Map</string>
 </resources>

@@ -35,6 +35,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class NotifyFragment extends Fragment {
     private FloatingActionButton fab;
     private JSONParser jParser;
     private JSONArray notifications;
+    SQLiteHandler db;
     private CustomNotificationAdapter stringAdapter;
 
     //private SQLiteHandler db;
@@ -63,18 +65,25 @@ public class NotifyFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.notify, container, false);
-
+        db = new SQLiteHandler(getActivity().getApplicationContext());
         lv = (ListView) v.findViewById(R.id.listView);
         //db = new SQLiteHandler(getActivity().getApplicationContext());
         jParser = new JSONParser();
+
         fab = (FloatingActionButton) v.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), AddNotification.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
+
+        HashMap<String,String> mp = db.getUserDetails();
+        if(!mp.get("roll").equals("y13uc094"))
+            fab.setVisibility(View.INVISIBLE);
+        else {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(getActivity(), AddNotification.class);
+                    getActivity().startActivity(myIntent);
+                }
+            });
+        }
 
        // if(db.getNotificationRowCount() == 0) {
             new LoadAllNotifications().execute();

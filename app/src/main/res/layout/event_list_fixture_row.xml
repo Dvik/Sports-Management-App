@@ -16,7 +16,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/check_steps_approval"
+            android:id="@+id/imageView2"
             android:button="@drawable/selectcheckbox"/>
         <LinearLayout
 
@@ -27,15 +27,16 @@
             android:layout_height= "wrap_content"
             >
             <TextView
-                android:id="@+id/list_desc_subject"
+                android:id="@+id/list_teams"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Do Step 1"
+                android:text="Team 1 v/s Team 2"
 
                 android:textColor="#000000"
                 android:typeface="normal"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 />
+
 
             <LinearLayout
 
@@ -47,23 +48,24 @@
                 >
 
                 <TextView
-                    android:id="@+id/list_desc_place"
+                    android:id="@+id/list_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:text="At Room No:103"
-                    android:textSize="12sp"
+                    android:text="Status"
+                    android:textSize="15sp"
                     android:typeface="normal" />
 
                 <TextView
-                    android:id="@+id/list_desc_priority"
+                    android:id="@+id/list_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:text="High Priority"
+                    android:text="22-01-2015   03:30"
                     android:textColor="#000000"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:typeface="normal" />
+
 
             </LinearLayout>
         </LinearLayout>

@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/event_details_toolbar" layout="@layout/toolbarprofile"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation = "vertical"
+
+        android:id = "@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        >
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+
+            android:background="#d3d3d3" />
+
+        <LinearLayout
+            android:orientation = "horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ImageView
+                android:id="@+id/event_detail_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/football"
+                />
+
+            <LinearLayout
+                android:orientation = "vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/event_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Event Name"
+                    android:textStyle="normal"
+                    android:textSize="20sp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/event_detail_descr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sdbsdbvsjdvbjsd vsjdsdvbsdjfvbsjdbvdsjbvjsdbvds dshv dsjb vdhsbvdshv vdshvdshbvdshv vsdvbsdjvbsd vsdbhvdsjbvsd dsbvdsvbds vsdbvdsj"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/myPrimaryColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src= "@drawable/ic_note_add_black_24dp"/>
+                    <TextView
+                        android:id="@+id/event_detail_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Delayed by 2 hours due to rain"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="normal"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src= "@drawable/ic_access_time_black_18dp"/>
+                    <TextView
+                        android:id="@+id/event_detail_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22 March 2015"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="normal"
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d3d3d3" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff">
+
+        <ListView
+            android:id="@+id/listview_fixtures"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

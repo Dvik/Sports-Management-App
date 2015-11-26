@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
@@ -26,6 +27,7 @@ public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     private SQLiteHandler db;
     public SessionManager session;
+    public String regid = "23344ADDF";
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -45,6 +47,8 @@ public class MainActivity extends ActionBarActivity
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
+
+        mToolbar.setTitle("Events");
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.fragment_drawer);
@@ -88,7 +92,29 @@ public class MainActivity extends ActionBarActivity
                 fragment = new NotifyFragment();
 
                 break;
+
             case 4:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"dvikash1001@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "BETA FEEDBACK(version 2.0) REGISTRATION ID:"+regid);
+                i.putExtra(Intent.EXTRA_TEXT   , "Hi! My feedback is");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+
+            case 5:
+                if (mToolbar != null)
+                    mToolbar.setTitle("Contact");
+                fragment = new ContactFragment();
+
+                break;
+
+            case 6:
                 logoutUser();
 
             default:
